@@ -1,22 +1,22 @@
-# Definindo variáveis
-CXX = g++
-CXXFLAGS = -Wall -Wextra -g
-SOURCES = main.cpp Pessoa.cpp Membro_clube.cpp Jogador.cpp Tecnico.cpp Tecnico_jogador.cpp Juiz.cpp Time.cpp Jogo.cpp Campeonato.cpp
-OBJECTS = $(SOURCES:.cpp=.o)
-EXECUTABLE = tournament.exe
+SRC_DIR = src
+OBJ_DIR = obj
+BUILD_DIR = build
+INC_DIR = include  # Diretório onde os arquivos de cabeçalho estão
 
-# Regra principal
+SOURCES = $(SRC_DIR)/main.cpp  $(SRC_DIR)/Pessoa.cpp $(SRC_DIR)/Membro_clube.cpp $(SRC_DIR)/Jogador.cpp $(SRC_DIR)/Tecnico.cpp $(SRC_DIR)/Tecnico_jogador.cpp $(SRC_DIR)/Juiz.cpp $(SRC_DIR)/Time.cpp $(SRC_DIR)/Jogo.cpp $(SRC_DIR)/Campeonato.cpp
+OBJECTS = $(addprefix $(OBJ_DIR)/, $(SOURCES:$(SRC_DIR)/%.cpp=%.o))
+EXECUTABLE = $(BUILD_DIR)/tournament
+
+# Flags de compilação
+CXXFLAGS = -I$(INC_DIR)  # Incluindo o diretório de cabeçalhos
+
 all: $(EXECUTABLE)
 
-# Como compilar o executável
 $(EXECUTABLE): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-# Como compilar os arquivos .cpp em arquivos .o
-%.o: %.cpp
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Limpar arquivos gerados
 clean:
-	del /Q $(OBJECTS) $(EXECUTABLE)
-
+	rm -f $(OBJECTS) $(EXECUTABLE)
