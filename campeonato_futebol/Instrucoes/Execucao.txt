@@ -1,0 +1,15 @@
+Para compilar: make
+Para executar: .\tournament.exe 
+
+
+No main o programa implementa:
+Crie um campeonato chamado "Campeonato Quadrangular".
+Cadastre quatro times diferentes.
+Cada time deve ter um técnico e, pelo menos, 5 jogadores.
+Cadastre um tecnico_jogador para um dos times.
+Cadastre dois juizes.
+Cadastre todos os jogos (cada time deve jogar contra todos os outros) e preencha os resultados (gols
+marcados por cada time).
+Exiba a tabela de classificação final com todos os jogos realizados e as pontuações finais de cada time.
+
+No main mostra a tabela antes e depois dos jogos da equipe do torneio
