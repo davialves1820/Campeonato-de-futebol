@@ -1,6 +1,9 @@
 Para compilar: make
-Para executar: .\tournament.exe 
-
+Para executar: ./build/tournament
+Na pasta include estão os arquivos de cabeçalho .h
+Na pasta src os arquivos implementados .cpp
+Na pasta obj os arquivos compilados objeto .o
+Na pasta build o arquivo executável .exe
 
 No main o programa implementa:
 Crie um campeonato chamado "Campeonato Quadrangular".
